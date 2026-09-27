@@ -46,9 +46,13 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
+    icon: [
+      { url: "/favicon.ico?v=2" },
+      { url: "/favicon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png?v=2", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico?v=2",
+    apple: [{ url: "/apple-icon.png?v=2", sizes: "180x180", type: "image/png" }],
   },
 };
 
@@ -59,6 +63,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi" className={`${playfair.variable} ${beVietnam.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icon.png?v=2" />
+        <link rel="apple-touch-icon" href="/apple-icon.png?v=2" />
+      </head>
       <body className="min-h-screen flex flex-col bg-cream text-dark antialiased selection:bg-gold selection:text-forest-900">
         <CartProvider>
           <Header />
